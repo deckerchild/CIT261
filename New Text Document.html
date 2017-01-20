@@ -1,0 +1,36 @@
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>GETTING STARTED WITH BRACKETS</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    
+        
+            
+    <body>
+        <form>
+        First name:<br>
+            <input type="text" name="firstname"><br>
+        Last name:<br>
+        <input type="text" name="lastname">
+            </form>
+        <textarea id=”input”></textarea>
+        
+        <script>
+                    var input = document.getElementById(“input”);
+                input.value = localStorage.getItem(“mytext”) || “”;
+                input.addEventListener(“keyup”, function() {
+                    localStorage.setItem(“mytext”, input.value);
+                }, false);
+            alert("Mark was here");
+        </script>
+    
+        <!--Local Storage API, Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects-->
+
+        
+        
+    </body>
+</html>
