@@ -1,36 +1,88 @@
 <html>
-    
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GETTING STARTED WITH BRACKETS</title>
-        <meta name="description" content="An interactive getting started guide for Brackets.">
-        <link rel="stylesheet" href="main.css">
-    </head>
-    
-        
-            
-    <body>
-        <form>
-        First name:<br>
-            <input type="text" name="firstname"><br>
-        Last name:<br>
-        <input type="text" name="lastname">
-            </form>
-        <textarea id=”input”></textarea>
-        
-        <script>
-                    var input = document.getElementById(“input”);
-                input.value = localStorage.getItem(“mytext”) || “”;
-                input.addEventListener(“keyup”, function() {
-                    localStorage.setItem(“mytext”, input.value);
-                }, false);
-            alert("Mark was here");
-        </script>
-    
-        <!--Local Storage API, Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects-->
+<body>
 
+    <p>This example demonstrates how to assign an "onclick" event to a p element.</p>
+
+    <p id="demo" onclick="myFunction()">Click me.</p>
+    <input  type="text" id ="txteric" name="txteric">First</input>   
+    <br></br>
+    
+   
+    
+    <button id="btn1" onclick="myFunction()">save</button>
+    <button id="btn2" onclick="myRetrieval()">Retrieve</button>
+    <button id="btn3" onclick="myArray()">Arrays</button>
+    <button id="btn3" onclick="retrieveArray()">Retrieve Array</button>
+    <button id="btn4" onclick="myObject()">Associative Array and Object</button>
+    <script>
+        function myFunction() {
+            alert("string should be: " );
+            var mystring = document.getElementById("txteric").value;
+            alert("string should be: " + mystring);
+            localStorage.setItem("var", mystring);
+        alert(localStorage.getItem("var"));
+        }
+
+        function myRetrieval() {
+            var mystring = localStorage.getItem("var");
+            alert("string should be: " + mystring);
+            }
         
+        function myArray(){           
+            var mystring = document.getElementById("txteric").value;
+            alert(mystring);
+            var res = mystring.split(" ");
+            alert(res.toString());
+            localStorage.setItem("localArray", res.toString());
+            
+        }
         
-    </body>
+        function retrieveArray()
+        {
+            var mystring = localStorage.getItem("localArray");
+            alert(mystring);
+            var myArray = mystring.split(",");
+            alert(myArray[0]);
+            alert(myArray[1]);
+            var y = JSON.stringify(myArray);
+            alert(y);
+        }
+        
+        function myObject()
+        {
+            // Creating an example of JSON
+var session = {
+  'screens': [],
+  'state': false, 
+    'name': "Mark"
+};
+            
+session.screens.push({ 'name': 'screenA', 'width': 450, 'height': 250 });
+session.screens.push({ 'name': 'screenB', 'width': 650, 'height': 350 });
+session.screens.push({ 'name': 'screenC', 'width': 750, 'height': 120 });
+session.screens.push({ 'name': 'screenD', 'width': 250, 'height': 60 });
+session.screens.push({ 'name': 'screenE', 'width': 390, 'height': 120 });
+session.screens.push({ 'name': 'screenF', 'width': 1240, 'height': 650 });
+
+// Converting the JSON string with JSON.stringify()
+// then saving with localStorage in the name of session
+localStorage.setItem('session', JSON.stringify(session));
+var git = localStorage.getItem("session");
+            alert(git);
+// Example of how to transform the String generated through 
+// JSON.stringify() and saved in localStorage in JSON object again
+var restoredSession = JSON.parse(localStorage.getItem('session'));
+            restoredSession.name = "megan";
+            
+
+// Now restoredSession variable contains the object that was saved
+// in localStorage
+            alert(restoredSession.name);
+console.log(restoredSession);
+            
+        }
+        
+    </script>
+
+</body>
 </html>
