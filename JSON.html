@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JSON Stringify and Parse Demo</h2>
+<p>Object: <br> Name: John<br>  Age:30 <br> City:New York</p>
+<p id="demo"></p>
+<button id="btn1" onclick="stringness()">Stringify</button>
+<button id="btn1" onclick="parsenes()">Parse</button><br>
+<a href="index.html">Link to Lesson 1</a>
+<script>
+
+    function stringness(){
+        var obj = { "name":"John", "age":30, "city":"New York"};
+        var myJSON = JSON.stringify(obj);
+        document.getElementById("demo").innerHTML = myJSON;
+        alert(myJSON);
+}
+    function parsenes(){
+        var obj = JSON.parse('{ "name":"John", "age":30, "city":"New York"}');
+        document.getElementById("demo").innerHTML = obj.name + ", " + obj.age;
+        alert(obj.name + ", " + obj.age);
+    }
+</script>
+
+</body>
+</html>
