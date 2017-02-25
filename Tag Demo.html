@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Video, Audio, Canvas Tag Demo</h2>
+
+<p id="demo"></p>
+
+    
+<video width="320" height="240" controls>
+  <source src="Parks and Recreation - Ron and Leslie De-program Jeremy Jamm (Episode Highlight).mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+    
+<audio controls>
+  <source src="Parks and Recreation - Ron and Leslie De-program Jeremy Jamm (Episode Highlight).mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+    
+<canvas id="myCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
+    
+<br><a href="index.html">Link to Lesson 1</a>
+<script>
+    
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#FF0000";
+    ctx.fillRect(0, 0, 80, 80);
+    
+</script>
+
+</body>
+</html>
