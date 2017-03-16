@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Object Demo</title>
+  
+
+  
+</head>
+
+<body>
+<p>Here is an example of a displayed object.</p>
+  <p id="demo"></p><br>
+    <p>An object method is a function definition stored as a property value.</p>
+        <p>If you access it without (), it will return the function definition:</p>
+            <p id="demo2"></p><br>
+    <p>Here is an example of an added property to the already constructed 'Person' Object</p>
+    <p id="demo3"></p>
+                
+   <script>
+    //method    
+    var John = {firstName: "John", lastName : "Doe", id:5566, fullName : 
+    function() 
+    {
+       //returns method
+       return this.firstName + " " + this.lastName;
+    }
+               };
+                
+    //simple object demo   
+    var person = {firstName:"Mark", lastName:"Decker", age:23, eyeColor:"brown"};
+       
+    //simple object display   
+    document.getElementById("demo").innerHTML =   
+    person.firstName + " is " + person.age + " years old.";
+       
+    //method display   
+    document.getElementById("demo2").innerHTML = John.fullName;
+       
+    //constructor   
+    function Person(first, last, age, eyecolor) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+    this.eyeColor = eyecolor;
+}
+    //two new objects that inherited Person   
+    var myFather = new Person("Eric", "Decker", 50, "blue");
+    var myMother = new Person("Raquel", "Decker", 48, "green");
+       
+    //Created new property   
+    myFather.nationality = "English";
+    
+    //displayed
+    document.getElementById("demo3").innerHTML =
+    "My father is " + myFather.nationality; 
+    
+   </script>
+</body>
+</html>
